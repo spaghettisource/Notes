@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Notes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let note of notes" [routerLink]="['/view-note', note.createDate]" routerLinkActive="router-link-active" >{{note.title}}</ion-item>
+  </ion-list>
+  <ion-button [routerLink]="['/add-note']" routerLinkActive="router-link-active" title="Add Note">Add Note</ion-button>
+</ion-content>
