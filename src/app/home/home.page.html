@@ -1,12 +1,14 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Notes
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  <ion-list>
+    <ion-item *ngFor="let note of notes" [routerLink]="['/view-note', note.createDate]" routerLinkActive="router-link-active" >{{note.title}}</ion-item>
+  </ion-list>
+  <ion-button [routerLink]="['/add-note']" routerLinkActive="router-link-active" title="Add Note">Add Note</ion-button>
 </ion-content>

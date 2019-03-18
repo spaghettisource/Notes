@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add Note</ion-title>
+    <ion-button [routerLink]="['/home']">&lt; Back</ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="formGroup" (ngSubmit)="addNote(formGroup.value)">
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" formControlName="date"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Title</ion-label>
+      <ion-input type="text" formControlName="title" required></ion-input>
+      <div class="alert" *ngIf="!formGroup.controls['title'].valid"></div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Note</ion-label>
+      <ion-input type="text" formControlName="content" required></ion-input>
+      <div class="alert" *ngIf="!formGroup.controls['content'].valid"></div>
+    </ion-item>
+    <ion-button type="submit" color="success" [disabled]="!formGroup.valid">Save Note</ion-button>
+
+  </form>
+</ion-content>
